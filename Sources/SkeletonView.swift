@@ -215,14 +215,11 @@ extension UIView {
     }
     
     private func swizzleLayoutSubviews() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            DispatchQueue.once(token: "UIView.SkeletonView.swizzleLayoutSubviews") {
-                swizzle(selector: #selector(UIView.layoutSubviews),
-                        with: #selector(UIView.skeletonLayoutSubviews),
-                        inClass: UIView.self,
-                        usingClass: UIView.self)
-                self.layoutSkeletonIfNeeded()
-            }
+        DispatchQueue.once(token: "UIView.SkeletonView.swizzleLayoutSubviews") {
+            swizzle(selector: #selector(UIView.layoutSubviews),
+                    with: #selector(UIView.skeletonLayoutSubviews),
+                    inClass: UIView.self,
+                    usingClass: UIView.self)
         }
     }
 

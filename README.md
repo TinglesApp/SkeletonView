@@ -1,3 +1,15 @@
+# Tingles Fork
+
+## Reason
+
+Versions of SkeletonView after v1.8.1 would break layout. Only one cell would be loaded and its contents would get animated from top left corner.
+
+## Changes
+
+Revert changes with dispatch calls in `Sources/SkeletonView.swift` introduces in commit [a0a2ae7](https://github.com/Juanpe/SkeletonView/commit/a0a2ae760b3df5722e3354310c086bef9d8dab9a).
+
+# Original README
+
 ![](Assets/header2.jpg)
 
 <p align="center">
